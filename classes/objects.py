@@ -9,8 +9,11 @@ class Folder:
     
     def __init__(self,dirPath):
          self.dirPath = dirPath
-         os.chdir(dirPath)
-    
+         try:
+             os.chdir(dirPath)
+         except FileNotFoundError:
+             os.mkdir(dirPath)
+        
     def search_path(self,mask):
         files = glob.glob(mask)
         return files
