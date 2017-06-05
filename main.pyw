@@ -17,7 +17,7 @@ def folderResult():
     
     folder = []
     result = []
-
+    
     try:
         for i in ini['Path']:
             dir_object = objects.Folder(ini['Path'][i])
@@ -32,7 +32,7 @@ def folderResult():
         
 def Message(folder,result):
     if result != []:
-        message = "В папках " + str(folder) + " у вас необработанные: \n" + str(result)
+        message = "В папках " + str(folder).upper() + " у вас необработанные: \n" + str(result)
         Mbox("Оповещение", message, 1)
 
 while True:
