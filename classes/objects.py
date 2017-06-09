@@ -16,8 +16,9 @@ class Folder:
         
     def search_dir(self,mask):
         result = []
-        masking = mask.split(',')
+        masking = mask.split(' ')
         for i in masking:
             find = glob.glob(i)
-            result.append(i)
+            result += find
+        print(result)
         return result
