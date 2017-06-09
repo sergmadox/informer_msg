@@ -20,5 +20,4 @@ class Folder:
         for i in masking:
             find = glob.glob(i)
             result += find
-        print(result)
         return result
