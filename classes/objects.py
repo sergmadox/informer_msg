@@ -14,7 +14,10 @@ class Folder:
          except FileNotFoundError:
              os.mkdir(dirPath)
         
-    def search_path(self,mask):
-        files = glob.glob(mask)
-        return files
-    
+    def search_dir(self,mask):
+        result = []
+        masking = mask.split(',')
+        for i in masking:
+            find = glob.glob(i)
+            result.append(i)
+        return result
