@@ -14,17 +14,13 @@ def Mbox(title, text, style):
     ctypes.windll.user32.MessageBoxW(0, text, title, style )
     
 def folderResult():
-    
-    folder = []
-    result = []
-    
+     
     try:
         for i in ini['Path']:
             dir_object = objects.Folder(ini['Path'][i])            
-            result += dir_object.search_dir(mask)
-            folder.append(ini['Path'][i])
-    
-        Message(folder, result)
+            result = dir_object.search_dir(mask)
+            folder = ini['Path'][i]
+            Message(folder, result)
     
     except:
         message = 'Ошибка конфигурации файла conf.ini'
@@ -32,9 +28,9 @@ def folderResult():
         
 def Message(folder,result):
     if result != []:
-        message = "В папках " + str(folder).upper() + " у вас необработанные: \n" + str(result)
+        message = "В папке " + str(folder).upper() + " у вас необработанный(е): \n" + str(result)
         Mbox("Оповещение", message, 0x30 | 0x0)
 
 while True:
-    time.sleep( timer )
+    time.sleep(timer)
     folderResult()

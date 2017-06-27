@@ -18,6 +18,6 @@ class Folder:
         result = []
         masking = mask.split(' ')
         for i in masking:
-            find = glob.glob(i)
-            result += find
+            if i != []:
+                result += glob.glob(i)
         return result
