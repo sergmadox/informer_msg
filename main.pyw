@@ -3,7 +3,7 @@ import configparser
 import time
 import ctypes
 from classes import objects
-
+import threading
 ini = configparser.ConfigParser()
 ini.read('conf.ini')
 
@@ -33,4 +33,6 @@ def Message(folder,result):
 
 while True:
     time.sleep(timer)
-    folderResult()
+    thread = threading.Thread(target=folderResult)
+    thread.daemon = True
+    thread.start()
