@@ -10,9 +10,9 @@ class Folder:
     def __init__(self,dirPath):
          self.dirPath = dirPath
          try:
-             os.chdir(dirPath)
+             os.chdir(self.dirPath)
          except FileNotFoundError:
-             os.mkdir(dirPath)
+             os.mkdir(self.dirPath)
         
     def search_dir(self,mask):
         result = []
